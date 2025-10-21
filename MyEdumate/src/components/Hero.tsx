@@ -29,6 +29,8 @@ const academicLevels = [
 export default function Hero() {
   const [serviceType, setServiceType] = useState('editing');
   const [wordCount, setWordCount] = useState(1000);
+  // keep the visible input empty initially to avoid showing 0
+  const [wordInput, setWordInput] = useState('');
   const [urgency, setUrgency] = useState('7');
   const [academicLevel, setAcademicLevel] = useState('undergraduate');
 
@@ -135,21 +137,23 @@ export default function Hero() {
                   {/* Word Count */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Words: {wordCount.toLocaleString()}
+                      Number of Words (Minimum 250 words recommended)
                     </label>
                     <input
-                      type="range"
-                      min="250"
-                      max="5000"
-                      step="250"
-                      value={wordCount}
-                      onChange={(e) => setWordCount(Number(e.target.value))}
-                      className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0B5394]"
+                      type="number"
+                      min="1"
+                      max="10000"
+                      value={wordInput}
+                      onChange={(e) => setWordInput(e.target.value)}
+                      onBlur={() => {
+                        const parsed = parseInt(String(wordInput).replace(/\D/g, ''), 10);
+                        const final = Number.isFinite(parsed) && parsed > 0 ? parsed : wordCount;
+                        setWordCount(final);
+                        setWordInput(String(final));
+                      }}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#0B5394] focus:outline-none transition-all bg-white text-gray-900"
+                      placeholder="Enter word count"
                     />
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
-                      <span>250</span>
-                      <span>5,000</span>
-                    </div>
                   </div>
 
                   {/* Academic Level & Deadline */}
@@ -189,8 +193,23 @@ export default function Hero() {
                     </div>
                   </div>
 
+                  {/* Calculate Button */}
+                  <div className="mt-6">
+                    <button
+                      onClick={() => {
+                        const parsed = parseInt(String(wordInput).replace(/\D/g, ''), 10);
+                        const final = Number.isFinite(parsed) && parsed > 0 ? parsed : wordCount;
+                        setWordCount(final);
+                        setWordInput(String(final));
+                      }}
+                      className="w-full bg-gradient-to-r from-[#0B5394] to-[#084170] text-white py-3 px-6 rounded-xl font-bold text-lg hover:shadow-lg transition-all transform hover:scale-105"
+                    >
+                      Calculate Price
+                    </button>
+                  </div>
+
                   {/* Price Display */}
-                  <div className="bg-gradient-to-r from-[#0B5394] to-[#084170] rounded-2xl p-6 text-white mt-6 shadow-lg">
+                  <div className="bg-gradient-to-r from-[#0B5394] to-[#084170] rounded-2xl p-6 text-white mt-4 shadow-lg">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-2">
                         <DollarSign className="w-5 h-5 text-[#F2C94C]" />
