@@ -24,22 +24,28 @@ export default function About() {
                 <p><strong>Headquarters:</strong> Vijayawada, Andhra Pradesh, India</p>
               </div>
 
-              <p className="text-lg">
-                MyEdumate is a leading educational services company specializing in ethical academic editing,
-                mentoring, and research support. We provide comprehensive academic assistance to students
-                pursuing higher education across the globe.
-              </p>
+              <div className="prose max-w-none text-slate-700">
+                <p className="text-lg leading-relaxed">
+                  <span className="font-semibold text-slate-900">MyEdumate</span> is a trusted educational services partner that specializes in
+                  <span className="font-medium"> ethical academic editing</span>, <span className="font-medium">research mentoring</span>, and
+                  <span className="font-medium"> student skill development</span>. We deliver personalized, evidence-based support to
+                  students pursuing higher education globally while protecting academic integrity.
+                </p>
 
-              <p>
-                Our services are designed to enhance students' academic skills, improve their understanding
-                of complex subjects, and help them achieve their educational goals while maintaining the
-                highest standards of academic integrity.
-              </p>
+                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                  Our offerings are designed to <span className="font-semibold">strengthen academic skills</span>, improve clarity and
+                  structure, and help learners meet deadlines—all while maintaining the <em>highest standards of honesty</em> in scholarship.
+                </p>
 
-              <p>
-                We are particularly proud to serve the Telugu student communities across USA, UK, and Australia,
-                having successfully completed over 10,000 academic projects with an outstanding 99.99% success rate.
-              </p>
+                <div className="mt-4">
+                  <p className="text-sm text-slate-600">We proudly serve Telugu student communities across the USA, UK, Australia, and students worldwide.</p>
+
+                  <div className="mt-3 flex items-center gap-3">
+                    <span className="inline-flex items-center bg-[#0B5394] text-white px-3 py-1 rounded-full text-sm font-semibold">10,000+ Projects</span>
+                    <span className="inline-flex items-center bg-slate-100 text-slate-800 px-3 py-1 rounded-full text-sm font-semibold">99.99% Success Rate</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -76,6 +82,16 @@ export default function About() {
               <div className="text-gray-600 font-medium">Years Experience</div>
             </div>
           </div>
+        </div>
+
+        {/* Service chips moved below the stats cards for better flow */}
+        <div className="mt-6 mb-16 flex flex-wrap gap-2 justify-center md:justify-start">
+          <span className="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs rounded-full border">Editing & Proofreading</span>
+          <span className="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs rounded-full border">Plagiarism Improvement</span>
+          <span className="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs rounded-full border">Research Mentoring</span>
+          <span className="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs rounded-full border">Formatting & Citation</span>
+          <span className="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs rounded-full border">Presentation Prep</span>
+          <span className="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs rounded-full border">Academic Coaching</span>
         </div>
 
         {/* Mission, Vision, Values */}
