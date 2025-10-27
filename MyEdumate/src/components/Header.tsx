@@ -1,8 +1,34 @@
-import { GraduationCap, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { GraduationCap, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handles section scrolling and navigation
+  const handleNavigation = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      // Navigate home first
+      navigate("/");
+      // Wait for home page render, then scroll
+      setTimeout(() => {
+        const section = document.querySelector(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 400);
+    } else {
+      // Already on home page, scroll directly
+      const section = document.querySelector(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-gray-100">
@@ -25,34 +51,47 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
-            <a
-              href="#home"
+            <button
+              onClick={() => handleNavigation("#home")}
               className="relative px-4 py-2 text-gray-700 hover:text-[#0B5394] transition-all font-medium rounded-lg hover:bg-gray-50 group"
             >
               Home
               <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
-            </a>
-            <a
-              href="#services"
+            </button>
+
+            <button
+              onClick={() => handleNavigation("#services")}
               className="relative px-4 py-2 text-gray-700 hover:text-[#0B5394] transition-all font-medium rounded-lg hover:bg-gray-50 group"
             >
               Services
               <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
-            </a>
-            <a
-              href="#about"
+            </button>
+
+            <Link
+              to="/pricing"
+              className="relative px-4 py-2 text-gray-700 hover:text-[#0B5394] transition-all font-medium rounded-lg hover:bg-gray-50 group"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
+              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+            </Link>
+
+            <button
+              onClick={() => handleNavigation("#about")}
               className="relative px-4 py-2 text-gray-700 hover:text-[#0B5394] transition-all font-medium rounded-lg hover:bg-gray-50 group"
             >
               About
               <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
-            </a>
-            <a
-              href="#contact"
+            </button>
+
+            <button
+              onClick={() => handleNavigation("#contact")}
               className="relative px-4 py-2 text-gray-700 hover:text-[#0B5394] transition-all font-medium rounded-lg hover:bg-gray-50 group"
             >
               Contact
               <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
-            </a>
+            </button>
+
             <div className="pl-4">
               <a
                 href="https://wa.me/919790736503"
@@ -77,34 +116,42 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-100 py-4 space-y-2 bg-white/95 backdrop-blur-md rounded-b-2xl shadow-lg">
-            <a
-              href="#home"
-              className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
+            <button
+              onClick={() => handleNavigation("#home")}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
             >
               Home
-            </a>
-            <a
-              href="#services"
-              className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+
+            <button
+              onClick={() => handleNavigation("#services")}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
             >
               Services
-            </a>
-            <a
-              href="#about"
-              className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
+            </button>
+
+            <Link
+              to="/pricing"
               onClick={() => setIsMenuOpen(false)}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
+            >
+              Pricing
+            </Link>
+
+            <button
+              onClick={() => handleNavigation("#about")}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
             >
               About
-            </a>
-            <a
-              href="#contact"
-              className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+
+            <button
+              onClick={() => handleNavigation("#contact")}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors font-medium"
             >
               Contact
-            </a>
+            </button>
+
             <div className="px-4 pt-2">
               <a
                 href="https://wa.me/919790736503"

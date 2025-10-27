@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Clock, Building } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -23,7 +23,34 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* Company Information */}
+        <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-8 border border-white/30 mb-12">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Company Information</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold text-[#F2C94C] mb-2">Legal Entity</h4>
+              <p className="text-white mb-4">BHAGAVAN GLOBAL EDUCATIONAL SERVICES LLP</p>
+              
+              <h4 className="text-lg font-semibold text-[#F2C94C] mb-2">Business Address</h4>
+              <p className="text-gray-200">
+                Vijayawada, Andhra Pradesh 520010<br />
+                India
+              </p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-[#F2C94C] mb-2">Founder & CEO</h4>
+              <p className="text-white mb-4">Mr. Naga Surya Bhagavan</p>
+              
+              <h4 className="text-lg font-semibold text-[#F2C94C] mb-2">Business Hours</h4>
+              <p className="text-gray-200">
+                Monday - Sunday: 24/7 Support Available<br />
+                Response within 2-4 hours
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <a
             href="tel:+918317542315"
             className="group bg-white/15 backdrop-blur-xl rounded-2xl p-8 border border-white/30 hover:bg-white/25 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
@@ -31,8 +58,9 @@ export default function Contact() {
             <div className="w-16 h-16 bg-gradient-to-br from-[#F2C94C] to-[#FFD700] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <Phone className="w-8 h-8 text-[#0B5394]" />
             </div>
-            <h3 className="text-white font-bold text-lg mb-3">Phone</h3>
+            <h3 className="text-white font-bold text-lg mb-3">Primary Phone</h3>
             <p className="text-gray-200 group-hover:text-white transition-colors">+91 83175 42315</p>
+            <p className="text-sm text-gray-300 mt-2">Call for urgent queries</p>
           </a>
 
           <a
@@ -44,8 +72,9 @@ export default function Contact() {
             <div className="w-16 h-16 bg-gradient-to-br from-[#F2C94C] to-[#FFD700] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <MessageCircle className="w-8 h-8 text-[#0B5394]" />
             </div>
-            <h3 className="text-white font-bold text-lg mb-3">WhatsApp</h3>
+            <h3 className="text-white font-bold text-lg mb-3">WhatsApp Support</h3>
             <p className="text-gray-200 group-hover:text-white transition-colors">+91 97907 36503</p>
+            <p className="text-sm text-gray-300 mt-2">Preferred contact method</p>
           </a>
 
           <a
@@ -55,20 +84,33 @@ export default function Contact() {
             <div className="w-16 h-16 bg-gradient-to-br from-[#F2C94C] to-[#FFD700] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <Mail className="w-8 h-8 text-[#0B5394]" />
             </div>
-            <h3 className="text-white font-bold text-lg mb-3">Email</h3>
+            <h3 className="text-white font-bold text-lg mb-3">Email Support</h3>
             <p className="text-gray-200 group-hover:text-white transition-colors break-words text-sm">
               Bhagavanthavva@myedumate.co
             </p>
+            <p className="text-sm text-gray-300 mt-2">For detailed inquiries</p>
           </a>
+        </div>
 
-          <div className="group bg-white/15 backdrop-blur-xl rounded-2xl p-8 border border-white/30 hover:bg-white/25 transition-all duration-300 transform hover:scale-105">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#F2C94C] to-[#FFD700] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <MapPin className="w-8 h-8 text-[#0B5394]" />
+        {/* Additional Contact Information */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-8 border border-white/30">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#F2C94C] to-[#FFD700] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+              <Building className="w-8 h-8 text-[#0B5394]" />
             </div>
-            <h3 className="text-white font-bold text-lg mb-3">Location</h3>
-            <p className="text-gray-200 group-hover:text-white transition-colors">
-              Vijayawada, Andhra Pradesh, India
-            </p>
+            <h3 className="text-white font-bold text-lg mb-3">Business Registration</h3>
+            <p className="text-gray-200 mb-2">Registered under the Limited Liability Partnership Act, 2008</p>
+            <p className="text-gray-200">Government of India</p>
+          </div>
+
+          <div className="bg-white/15 backdrop-blur-xl rounded-2xl p-8 border border-white/30">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#F2C94C] to-[#FFD700] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+              <Clock className="w-8 h-8 text-[#0B5394]" />
+            </div>
+            <h3 className="text-white font-bold text-lg mb-3">Support Availability</h3>
+            <p className="text-gray-200 mb-2">24/7 WhatsApp Support</p>
+            <p className="text-gray-200 mb-2">Email responses within 2-4 hours</p>
+            <p className="text-gray-200">Emergency support available</p>
           </div>
         </div>
 
