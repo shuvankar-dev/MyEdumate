@@ -10,7 +10,7 @@ const Privacy: React.FC = () => {
         {/* Title Section */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-[#0B5394] mb-2">
-            Privacy Policy – MyEdumate
+            Data Protection Policy – MyEdumate
           </h1>
           <p className="text-gray-600 font-medium">Last updated: October 22, 2025</p>
         </div>

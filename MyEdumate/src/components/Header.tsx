@@ -1,10 +1,11 @@
-import { GraduationCap, Menu, X } from "lucide-react";
+import { GraduationCap, Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLegalDropdownOpen, setIsLegalDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -92,6 +93,57 @@ export default function Header() {
               <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
             </button>
 
+            {/* Legal Pages Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setIsLegalDropdownOpen(true)}
+                onMouseLeave={() => setIsLegalDropdownOpen(false)}
+                className="relative px-4 py-2 text-gray-700 hover:text-[#0B5394] transition-all font-medium rounded-lg hover:bg-gray-50 group flex items-center space-x-1"
+              >
+                <span>Legal Pages</span>
+                <ChevronDown className="w-4 h-4" />
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0B5394] to-[#F2C94C] group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+              </button>
+
+              {/* Dropdown Menu */}
+              {isLegalDropdownOpen && (
+                <div
+                  onMouseEnter={() => setIsLegalDropdownOpen(true)}
+                  onMouseLeave={() => setIsLegalDropdownOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg py-2 z-50"
+                >
+                  <Link
+                    to="/terms-and-conditions"
+                    className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 transition-colors font-medium"
+                    onClick={() => setIsLegalDropdownOpen(false)}
+                  >
+                    Terms & Conditions
+                  </Link>
+                  <Link
+                    to="/privacy-policy"
+                    className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 transition-colors font-medium"
+                    onClick={() => setIsLegalDropdownOpen(false)}
+                  >
+                    Privacy Policy
+                  </Link>
+                  <Link
+                    to="/refund-policy"
+                    className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 transition-colors font-medium"
+                    onClick={() => setIsLegalDropdownOpen(false)}
+                  >
+                    Refund Policy
+                  </Link>
+                  <Link
+                    to="/privacy"
+                    className="block px-4 py-3 text-gray-700 hover:text-[#0B5394] hover:bg-gray-50 transition-colors font-medium"
+                    onClick={() => setIsLegalDropdownOpen(false)}
+                  >
+                    Data Protection
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <div className="pl-4">
               <a
                 href="https://wa.me/919790736503"
@@ -151,6 +203,45 @@ export default function Header() {
             >
               Contact
             </button>
+
+            {/* Legal Pages Section in Mobile */}
+            <div className="border-t border-gray-200 pt-2 mt-2">
+              <div className="px-4 py-2">
+                <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Legal Pages</span>
+              </div>
+              
+              <Link
+                to="/terms-and-conditions"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-left px-4 py-2 text-gray-600 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors text-sm"
+              >
+                Terms & Conditions
+              </Link>
+              
+              <Link
+                to="/privacy-policy"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-left px-4 py-2 text-gray-600 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors text-sm"
+              >
+                Privacy Policy
+              </Link>
+              
+              <Link
+                to="/refund-policy"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-left px-4 py-2 text-gray-600 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors text-sm"
+              >
+                Refund Policy
+              </Link>
+              
+              <Link
+                to="/privacy"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-left px-4 py-2 text-gray-600 hover:text-[#0B5394] hover:bg-gray-50 rounded-lg transition-colors text-sm"
+              >
+                Data Protection
+              </Link>
+            </div>
 
             <div className="px-4 pt-2">
               <a
