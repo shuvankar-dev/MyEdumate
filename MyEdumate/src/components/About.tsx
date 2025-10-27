@@ -95,6 +95,72 @@ export default function About() {
         </div>
 
         {/* Mission, Vision, Values */}
+        {/* Our Approach & Team (added for more detail and trust) */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold text-[#0B5394] mb-6">Our Approach</h3>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-[#0B5394] flex items-center justify-center text-white">
+                  <Target className="w-5 h-5" />
+                </div>
+                <h4 className="font-semibold text-slate-800">Discover</h4>
+              </div>
+              <p className="text-sm text-slate-600">We review your brief and requirements, check submission guidelines, and set clear timelines.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-[#0B5394] flex items-center justify-center text-white">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <h4 className="font-semibold text-slate-800">Plan & Execute</h4>
+              </div>
+              <p className="text-sm text-slate-600">We assign experienced editors/mentors and follow a structured plan to improve quality and clarity.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-[#0B5394] flex items-center justify-center text-white">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <h4 className="font-semibold text-slate-800">Review & Deliver</h4>
+              </div>
+              <p className="text-sm text-slate-600">Senior editors verify quality and we deliver with clear revision instructions and next steps.</p>
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-bold text-[#0B5394] mb-6">Meet the Team</h3>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+              <div className="w-16 h-16 bg-[#F2C94C] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-[#0B5394]" />
+              </div>
+              <div className="font-semibold text-slate-800">Lead Editor</div>
+              <div className="text-sm text-slate-600 mt-2">Experienced academic editor with a background in social sciences and publication editing.</div>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+              <div className="w-16 h-16 bg-[#F2C94C] rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="w-8 h-8 text-[#0B5394]" />
+              </div>
+              <div className="font-semibold text-slate-800">Research Mentor</div>
+              <div className="text-sm text-slate-600 mt-2">Guides methodology, data interpretation and helps structure research for publication readiness.</div>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+              <div className="w-16 h-16 bg-[#F2C94C] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-[#0B5394]" />
+              </div>
+              <div className="font-semibold text-slate-800">Quality & Compliance</div>
+              <div className="text-sm text-slate-600 mt-2">Ensures ethical practices, plagiarism checks, and compliance with university guidelines.</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mission, Vision, Values */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white rounded-xl p-8 shadow-lg text-center">
             <div className="w-16 h-16 bg-[#0B5394] rounded-full flex items-center justify-center mx-auto mb-6">

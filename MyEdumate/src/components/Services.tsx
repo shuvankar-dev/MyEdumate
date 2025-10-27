@@ -4,32 +4,44 @@ const services = [
   {
     icon: FileText,
     title: 'Editing & Proofreading',
-    description: 'Professional editing services to refine your academic work with attention to grammar, style, and clarity.'
+    description: 'Professional editing services to refine your academic work with attention to grammar, style, and clarity.',
+    price: 'Starts at ₹399',
+    bullets: ['Language & grammar', 'Structure & flow', 'Reference checks']
   },
   {
     icon: Shield,
     title: 'Plagiarism Improvement',
-    description: 'Ethical guidance to improve originality and proper citation practices in your academic work.'
+    description: 'Ethical guidance to improve originality and proper citation practices in your academic work.',
+    price: 'Starts at ₹299',
+    bullets: ['Reference cleanup', 'Paraphrasing suggestions', 'Citation fixes']
   },
   {
     icon: BookOpen,
     title: 'Research Mentoring',
-    description: 'Expert mentorship to guide you through research methodology, analysis, and academic writing.'
+    description: 'Expert mentorship to guide you through research methodology, analysis, and academic writing.',
+    price: 'Hourly mentorship',
+    bullets: ['Methodology review', 'Data interpretation', 'Draft feedback']
   },
   {
     icon: FileCheck,
     title: 'Formatting & Citation',
-    description: 'Precise formatting according to APA, MLA, Chicago, Harvard, and other citation styles.'
+    description: 'Precise formatting according to APA, MLA, Chicago, Harvard, and other citation styles.',
+    price: 'Starts at ₹199',
+    bullets: ['Citation styling', 'Reference formatting', 'Layout & margins']
   },
   {
     icon: Presentation,
     title: 'Presentation Preparation',
-    description: 'Professional support in creating compelling presentations for your academic projects.'
+    description: 'Professional support in creating compelling presentations for your academic projects.',
+    price: 'Starts at ₹499',
+    bullets: ['Slide design', 'Speaker notes', 'Visual data polishing']
   },
   {
     icon: Award,
     title: 'Academic Skill Coaching',
-    description: 'Personalized coaching to develop your academic writing and research skills for long-term success.'
+    description: 'Personalized coaching to develop your academic writing and research skills for long-term success.',
+    price: 'Custom packages',
+    bullets: ['Writing workshops', 'Citation tutorials', 'Study planning']
   }
 ];
 
@@ -60,34 +72,45 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 hover:scale-105 border border-white/50 relative overflow-hidden"
+              className="group bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 hover:scale-105 border border-white/60 relative overflow-hidden"
             >
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0B5394]/5 to-[#F2C94C]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-              
               {/* Icon */}
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0B5394] to-[#084170] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <service.icon className="w-8 h-8 text-[#F2C94C]" />
+                <div className="w-14 h-14 bg-gradient-to-br from-[#0B5394] to-[#084170] rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 shadow-md">
+                  <service.icon className="w-6 h-6 text-[#F2C94C]" />
                 </div>
               </div>
 
               <div className="relative">
-                <h3 className="text-xl font-bold text-[#0B5394] mb-4 group-hover:text-[#084170] transition-colors">
+                <h3 className="text-lg md:text-xl font-semibold text-[#0B5394] mb-2 group-hover:text-[#084170] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">
                   {service.description}
                 </p>
-                
-                {/* Call to action that appears on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                  <div className="h-px bg-gradient-to-r from-[#0B5394] to-[#F2C94C] mb-3"></div>
+
+                <ul className="text-sm text-slate-600 space-y-1 mb-4">
+                  {service.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-2 h-2 mt-2 rounded-full bg-[#0B5394]" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex items-center justify-between">
                   <a
-                    href="#contact"
-                    className="inline-flex items-center text-[#0B5394] font-semibold hover:text-[#F2C94C] transition-colors"
+                    href="/pricing"
+                    className="inline-flex items-center text-[#0B5394] font-semibold hover:text-[#084170] transition-colors"
                   >
                     Learn More →
+                  </a>
+
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center bg-[#F2C94C] text-[#0B5394] px-3 py-2 rounded-lg font-semibold hover:opacity-90"
+                  >
+                    Get Quote
                   </a>
                 </div>
               </div>
@@ -95,8 +118,41 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Small trust row and process steps */}
+        <div className="mt-12 grid md:grid-cols-3 gap-6 items-center">
+          <div className="flex items-center justify-center md:justify-start gap-4">
+            <div className="w-10 h-10 rounded-full bg-[#0B5394] flex items-center justify-center text-white">
+              <Shield className="w-5 h-5" />
+            </div>
+            <div className="text-sm">
+              <div className="font-semibold text-slate-800">Confidential & Secure</div>
+              <div className="text-slate-600">We protect your data and privacy.</div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-[#0B5394] flex items-center justify-center text-white">
+              <FileCheck className="w-5 h-5" />
+            </div>
+            <div className="text-sm text-center">
+              <div className="font-semibold text-slate-800">Quality Checked</div>
+              <div className="text-slate-600">Each delivery is reviewed by senior editors.</div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center md:justify-end gap-4">
+            <div className="w-10 h-10 rounded-full bg-[#0B5394] flex items-center justify-center text-white">
+              <Award className="w-5 h-5" />
+            </div>
+            <div className="text-sm text-right">
+              <div className="font-semibold text-slate-800">Trusted by Students</div>
+              <div className="text-slate-600">10,000+ projects completed with high satisfaction.</div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom CTA section */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-[#0B5394] to-[#084170] rounded-2xl p-8 shadow-xl">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Excel in Your Academic Journey?
