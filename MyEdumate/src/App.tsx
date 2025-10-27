@@ -5,6 +5,7 @@ import Services from "./components/Services";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import Privacy from "./Pages/Privacy";
 import Pricing from "./Pages/Pricing";
 import TermsAndConditions from "./Pages/TermsAndConditions";
@@ -14,6 +15,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white">
         <Header />
 
